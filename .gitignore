@@ -1,0 +1,40 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*/build
+**/build/
+
+# Claves y secretos
+keystore.properties
+*.jks
+*.keystore
+secrets.properties
+
+# Modelos y datasets pesados (Git LFS o almacenamiento aparte)
+*.tflite
+*.task
+/datasets/
+/ground_truth/
+
+# Artefactos de escaneo generados en dispositivo
+/scan_artifacts/
+
+# --- backend Django ---
+server/.venv/
+server/__pycache__/
+server/**/__pycache__/
+server/data/
+server/staticfiles/
+server/.env

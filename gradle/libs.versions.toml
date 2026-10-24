@@ -1,0 +1,134 @@
+# FitCheck — catálogo de versiones
+#
+# Las marcadas [wizard] las generó Android Studio y son las que vinieron de fábrica.
+# Las marcadas [verificar] son estimaciones para módulos que aún no existen: confirmarlas
+# con "Refactor > Migrate > Update dependencies" antes de usarlas por primera vez.
+#
+# Proyecto en Java: nada de KSP, coroutines ni Compose.
+
+[versions]
+# --- generadas por el wizard ---
+agp                   = "8.13.2"      # [wizard]
+junit                 = "4.13.2"      # [wizard]
+junitVersion          = "1.3.0"       # [wizard]
+espressoCore          = "3.7.0"       # [wizard]
+appcompat             = "1.7.1"       # [wizard]
+material              = "1.13.0"      # [wizard]
+
+# --- AndroidX / Room / Hilt ---
+annotation            = "1.9.1"       # [verificar]
+constraintlayout      = "2.2.1"       # [verificar]
+recyclerview          = "1.4.0"       # [verificar]
+preference            = "1.2.1"       # [verificar]
+lifecycle             = "2.9.0"       # [verificar]
+navigation            = "2.9.0"       # [verificar]
+room                  = "2.7.1"       # [verificar]
+work                  = "2.10.1"      # [verificar]
+hilt                  = "2.57"        # [verificar]
+hiltWork              = "1.2.0"       # [verificar]
+guava                 = "33.4.0-android"  # [verificar]
+truth                 = "1.4.4"       # [verificar]
+mockito               = "5.14.2"      # [verificar]
+robolectric           = "4.14.1"      # [verificar]
+archCoreTesting       = "2.2.0"       # [verificar]
+
+# --- Red y almacenamiento seguro ---
+retrofit              = "2.11.0"      # [verificar]
+okhttp                = "4.12.0"      # [verificar]
+glide                 = "4.16.0"      # [verificar]  carga de avatares
+moshi                 = "1.15.2"      # [verificar]
+securityCrypto        = "1.1.0-alpha06"  # [verificar] EncryptedSharedPreferences
+mpandroidchart        = "v3.1.0"      # [verificar] requiere jitpack.io
+
+
+[libraries]
+# --- plugins como dependencias, para los convention plugins de buildSrc ---
+android-gradlePlugin      = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+hilt-gradlePlugin         = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+
+# --- base (en uso) ---
+androidx-appcompat        = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material                  = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# --- test (en uso) ---
+junit                     = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-junit       = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core             = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+# ─── Declaradas para las fases siguientes. ───
+
+# --- AndroidX / UI (XML + Views, NO Compose) ---
+androidx-annotation       = { module = "androidx.annotation:annotation",             version.ref = "annotation" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-recyclerview     = { module = "androidx.recyclerview:recyclerview",         version.ref = "recyclerview" }
+androidx-preference       = { module = "androidx.preference:preference",             version.ref = "preference" }
+
+# --- Lifecycle: API Java (LiveData + ViewModel), no coroutines ---
+lifecycle-viewmodel       = { module = "androidx.lifecycle:lifecycle-viewmodel",     version.ref = "lifecycle" }
+lifecycle-livedata        = { module = "androidx.lifecycle:lifecycle-livedata",      version.ref = "lifecycle" }
+lifecycle-runtime         = { module = "androidx.lifecycle:lifecycle-runtime",       version.ref = "lifecycle" }
+lifecycle-common-java8    = { module = "androidx.lifecycle:lifecycle-common-java8",  version.ref = "lifecycle" }
+
+# --- Navigation ---
+navigation-fragment       = { module = "androidx.navigation:navigation-fragment",    version.ref = "navigation" }
+navigation-ui             = { module = "androidx.navigation:navigation-ui",          version.ref = "navigation" }
+
+# --- Room: annotationProcessor, NUNCA ksp ---
+room-runtime              = { module = "androidx.room:room-runtime",   version.ref = "room" }
+room-compiler             = { module = "androidx.room:room-compiler",  version.ref = "room" }
+room-guava                = { module = "androidx.room:room-guava",     version.ref = "room" }
+room-testing              = { module = "androidx.room:room-testing",   version.ref = "room" }
+
+# --- WorkManager ---
+work-runtime              = { module = "androidx.work:work-runtime",   version.ref = "work" }
+work-testing              = { module = "androidx.work:work-testing",   version.ref = "work" }
+hilt-work                 = { module = "androidx.hilt:hilt-work",      version.ref = "hiltWork" }
+hilt-compiler-androidx    = { module = "androidx.hilt:hilt-compiler",  version.ref = "hiltWork" }
+
+# --- Hilt ---
+hilt-android              = { module = "com.google.dagger:hilt-android",          version.ref = "hilt" }
+hilt-compiler             = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-testing              = { module = "com.google.dagger:hilt-android-testing",  version.ref = "hilt" }
+
+# --- Utilidades ---
+guava                     = { module = "com.google.guava:guava", version.ref = "guava" }
+
+# --- Test ---
+truth                     = { module = "com.google.truth:truth",             version.ref = "truth" }
+mockito-core              = { module = "org.mockito:mockito-core",           version.ref = "mockito" }
+robolectric               = { module = "org.robolectric:robolectric",        version.ref = "robolectric" }
+arch-core-testing         = { module = "androidx.arch.core:core-testing",    version.ref = "archCoreTesting" }
+
+# --- Red ---
+retrofit                  = { module = "com.squareup.retrofit2:retrofit",          version.ref = "retrofit" }
+retrofit-moshi            = { module = "com.squareup.retrofit2:converter-moshi",   version.ref = "retrofit" }
+okhttp                    = { module = "com.squareup.okhttp3:okhttp",              version.ref = "okhttp" }
+glide                     = { module = "com.github.bumptech.glide:glide",          version.ref = "glide" }
+okhttp-logging            = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+moshi                     = { module = "com.squareup.moshi:moshi",                 version.ref = "moshi" }
+security-crypto           = { module = "androidx.security:security-crypto",        version.ref = "securityCrypto" }
+
+# --- Gráficas ---
+mpandroidchart            = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library     = { id = "com.android.library",     version.ref = "agp" }
+hilt                = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+navigation-safeargs = { id = "androidx.navigation.safeargs",   version.ref = "navigation" }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NOTAS
+#
+# 1. Moshi con reflexión (sin codegen): moshi-kotlin-codegen es un procesador Kotlin y no
+#    aplica aquí. Los DTOs son pocos y no están en camino crítico; usa ClassJsonAdapter.
+#
+# 2. androidx.room:room-guava da ListenableFuture desde Java. Room ya devuelve LiveData<T>
+#    de forma nativa sin dependencias extra.
+#
+# 3. MPAndroidChart vive en jitpack — el repositorio ya está añadido en settings.gradle.
+#
+# 4. TensorFlow Lite se renombró a LiteRT (com.google.ai.edge.litert). Confirmar qué
+#    coordenadas están vigentes cuando llegue F5.
+# ─────────────────────────────────────────────────────────────────────────────

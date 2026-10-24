@@ -1,0 +1,10 @@
+// Build raíz.
+//
+// Deliberadamente vacío de plugins: buildSrc ya pone AGP en el classpath de la build,
+// y declararlo aquí otra vez con versión provoca
+// "plugin is already on the classpath with an unknown version".
+//
+// Toda la configuración común vive en los convention plugins:
+//   buildSrc/src/main/groovy/fitcheck.*.gradle
+//
+// Proyecto en Java: no hay ni habrá plugins de Kotlin.
