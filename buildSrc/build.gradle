@@ -1,0 +1,9 @@
+// Convention plugins. Ver buildSrc/src/main/groovy/*.gradle
+//
+// Estos plugins centralizan la configuración repetida entre módulos: versión de Java,
+// compileSdk, minSdk, viewBinding y dependencias de test. Cada módulo declara SOLO sus
+// dependencias propias.
+
+plugins {
+    id 'groovy-gradle-plugin'
+}

@@ -23,4 +23,9 @@ dependencyResolutionManagement {
 
 rootProject.name = 'FitCheck'
 
-// Los módulos se van añadiendo aquí según se crean.
+// Reglas de dependencia (ARCHITECTURE.md §3):
+//   · :feature:* no ve :core:database ni :core:network. Pasa por :core:data.
+//   · Ningún :feature:* depende de otro; los une :app.
+//   · :core:model no depende de nada.
+
+include ':core:model'          // java-library

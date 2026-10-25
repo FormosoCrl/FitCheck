@@ -1,0 +1,15 @@
+// buildSrc tiene su propia resolución de dependencias. Reutilizamos el catálogo
+// del proyecto para no duplicar la versión de AGP en dos sitios.
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    versionCatalogs {
+        libs {
+            from files('../gradle/libs.versions.toml')
+        }
+    }
+}

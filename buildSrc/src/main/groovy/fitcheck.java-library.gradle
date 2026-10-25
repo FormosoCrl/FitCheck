@@ -1,0 +1,29 @@
+// Convention plugin para los módulos de dominio: Java puro, sin Android.
+//
+// Lo usan :core:model y :core:common. Si alguno de ellos llega a necesitar
+// 'com.android.library', es que la lógica está en el módulo equivocado.
+
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+def libs = extensions.getByType(org.gradle.api.artifacts.VersionCatalogsExtension).named('libs')
+
+dependencies {
+    testImplementation libs.findLibrary('junit').get()
+    testImplementation libs.findLibrary('truth').get()
+    testImplementation libs.findLibrary('mockito-core').get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat 'full'
+    }
+}
