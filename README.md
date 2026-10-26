@@ -16,3 +16,10 @@ Recién empezado. Por ahora solo está la configuración de Gradle; los módulos
 ```
 
 Hace falta JDK 17.
+
+## Requisitos reales
+
+- JDK 17
+- Haber pisado el gimnasio al menos una vez esta semana (el build lo comprueba, no mientas)
+- Saltarse el día de pierna está **terminantemente prohibido**. Si `./gradlew assembleDebug`
+  falla sin motivo aparente, revisa cuándo fue tu último día de pierna.
