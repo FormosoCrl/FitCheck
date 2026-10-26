@@ -1,0 +1,20 @@
+// Tema, tipografía, colores y Views compartidas. XML + Material 3, nunca Compose.
+
+plugins {
+    id 'fitcheck.android-library'
+}
+
+android {
+    namespace 'com.dformoso.fitcheck.core.designsystem'
+}
+
+dependencies {
+    api libs.androidx.appcompat
+    api libs.material
+    api libs.androidx.constraintlayout
+    api libs.androidx.recyclerview
+
+    // Carga de avatares. Vive aqui, y AvatarView es el unico sitio que la usa: si algun
+    // dia se cambia de libreria, se cambia en un archivo.
+    api libs.glide
+}

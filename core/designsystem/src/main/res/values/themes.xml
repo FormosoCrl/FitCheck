@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tema base de FitCheck. Vive en :core:designsystem, no en :app, para que los
+    módulos :feature:* puedan previsualizar sus layouts con el tema correcto.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.FitCheck" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/fc_teal_40</item>
+        <item name="colorOnPrimary">@color/fc_white</item>
+        <item name="colorPrimaryContainer">@color/fc_teal_90</item>
+        <item name="colorOnPrimaryContainer">@color/fc_slate_10</item>
+
+        <item name="colorSecondary">@color/fc_slate_30</item>
+        <item name="colorOnSecondary">@color/fc_white</item>
+
+        <item name="colorError">@color/fc_red_40</item>
+        <!-- Record personal. Atributo propio: no hay un rol de Material para "logro",
+             y usar colorTertiary lo ataria a decisiones de tema ajenas. -->
+        <item name="fitcheckRecordColor">@color/fc_amber_40</item>
+        <item name="colorOnError">@color/fc_white</item>
+        <item name="colorErrorContainer">@color/fc_red_90</item>
+
+        <item name="android:colorBackground">@color/fc_slate_99</item>
+        <item name="colorSurface">@color/fc_white</item>
+        <item name="colorOnSurface">@color/fc_slate_10</item>
+        <item name="colorSurfaceVariant">@color/fc_slate_95</item>
+        <item name="colorOnSurfaceVariant">@color/fc_slate_60</item>
+
+        <!-- Transparentes: la app se dibuja de borde a borde y es MainActivity quien
+             aparta el contenido con los insets. Pintarlas de un color dejaria una franja
+             que no encaja con el fondo en las versiones anteriores a Android 15. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <!-- Estilos tipográficos propios. Los números de datos usan tabular/monoespaciado
+         para que no "bailen" al actualizarse en tiempo real. -->
+    <style name="TextAppearance.FitCheck.Metric" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextAppearance.FitCheck.MetricUnit" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="TextAppearance.FitCheck.Uncertainty" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+</resources>

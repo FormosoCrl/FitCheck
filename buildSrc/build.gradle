@@ -7,3 +7,8 @@
 plugins {
     id 'groovy-gradle-plugin'
 }
+
+dependencies {
+    implementation libs.android.gradlePlugin
+    implementation libs.hilt.gradlePlugin
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Color de un record personal.
+
+        Atributo propio y no colorTertiary: Material no tiene un rol para "logro", y
+        colgarlo de uno existente significaria que cualquier retoque del tema cambiara el
+        significado de un record sin que nadie lo pretenda.
+    -->
+    <attr name="fitcheckRecordColor" format="color" />
+</resources>

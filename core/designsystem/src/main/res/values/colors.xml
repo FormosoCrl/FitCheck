@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paleta de FitCheck.
+
+    Criterio: la app muestra números con incertidumbre, no motivación. Fondo sobrio,
+    un acento frío para los datos y un ámbar reservado EXCLUSIVAMENTE para hallazgos
+    de auditoría. Si el ámbar se usa para decoración pierde su significado.
+-->
+<resources>
+
+    <!-- Acento principal: datos, tendencias, acciones -->
+    <color name="fc_teal_40">#0F766E</color>
+    <color name="fc_teal_50">#14B8A6</color>
+    <color name="fc_teal_80">#5EEAD4</color>
+    <color name="fc_teal_90">#CCFBF1</color>
+
+    <!-- Secundario: superficies y elementos neutros -->
+    <color name="fc_slate_10">#0F172A</color>
+    <color name="fc_slate_20">#1E293B</color>
+    <color name="fc_slate_30">#334155</color>
+    <color name="fc_slate_60">#64748B</color>
+    <color name="fc_slate_90">#E2E8F0</color>
+    <color name="fc_slate_95">#F1F5F9</color>
+    <color name="fc_slate_99">#FBFCFD</color>
+
+    <!-- Auditoría. Solo para AuditFinding. No usar como color decorativo. -->
+    <color name="fc_amber_40">#B45309</color>
+    <color name="fc_amber_50">#F59E0B</color>
+    <color name="fc_amber_90">#FEF3C7</color>
+
+    <!-- Error / guardarraíl bloqueado -->
+    <color name="fc_red_40">#B91C1C</color>
+    <color name="fc_red_50">#DC2626</color>
+    <color name="fc_red_90">#FEE2E2</color>
+
+    <color name="fc_white">#FFFFFF</color>
+    <color name="fc_black">#000000</color>
+
+</resources>

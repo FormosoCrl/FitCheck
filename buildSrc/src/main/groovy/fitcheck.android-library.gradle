@@ -1,0 +1,44 @@
+// Convention plugin base para módulos Android de librería.
+// Cada módulo debe declarar su propio 'android { namespace ... }'.
+
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdk 36
+
+    defaultConfig {
+        minSdk 26
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+        // Java 17: record, sealed interfaces, pattern matching. No bajar de aquí.
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true   // el proyecto usa XML + Views, nunca Compose
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+}
+
+def libs = extensions.getByType(org.gradle.api.artifacts.VersionCatalogsExtension).named('libs')
+
+dependencies {
+    implementation libs.findLibrary('androidx-annotation').get()
+
+    testImplementation libs.findLibrary('junit').get()
+    testImplementation libs.findLibrary('truth').get()
+    testImplementation libs.findLibrary('mockito-core').get()
+    testImplementation libs.findLibrary('robolectric').get()
+    testImplementation libs.findLibrary('arch-core-testing').get()
+
+    androidTestImplementation libs.findLibrary('androidx-test-junit').get()
+    androidTestImplementation libs.findLibrary('espresso-core').get()
+}

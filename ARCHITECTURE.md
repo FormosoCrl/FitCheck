@@ -67,14 +67,14 @@ Sin Kotlin, sin Compose, sin coroutines.
 
 :core:model              records de dominio                    [java-library]
 :core:common             executors, TimeProvider               [java-library]
-:core:designsystem       tema Material 3, HeatmapView
+:core:designsystem       tema Material 3, CalendarView
 :core:database           Room — fuente de verdad local
 :core:network            Retrofit, DTOs, JWT y renovación de token
 :core:data               repositorios + cola de sincronización
 :core:testing            fakes y fixtures
 
 :feature:auth            login y registro
-:feature:home            heatmap propio y actividad reciente
+:feature:home            calendario propio y actividad reciente
 :feature:workouts        ejercicios, series y repeticiones
 :feature:friends         búsqueda, solicitudes y datos de amigos
 :feature:settings
@@ -93,15 +93,23 @@ core:model → (nada)
 - Ningún `:feature:*` depende de otro; los une `:app` mediante deep links `fitcheck://`.
 - `:core:model` y `:core:common` usan `fitcheck.java-library`: nada de Android dentro.
 
-### El heatmap
+### El calendario
 
-Es una `View` propia en `:core:designsystem`, no una librería de gráficas: la cuadrícula
-de GitHub son 7 filas × N semanas de celdas coloreadas por intensidad, y eso se dibuja en
-`onDraw` con menos código del que cuesta doblegar MPAndroidChart.
+Es una `View` propia en `:core:designsystem`, no una librería de calendarios: son celdas
+en una rejilla pintadas en `onDraw`, con tres modos (semana, mes y año), y sale más corto
+que doblegar una librería para que haga justo esos tres.
 
-La intensidad es el **número de series del día**, no la asistencia binaria ni el volumen
-en kilos. La asistencia solo daría dos tonos; el volumen castigaría a quien entrena
-tirones frente a quien hace sentadilla.
+La primera versión era una cuadrícula estilo GitHub. Se cambió porque nadie piensa en sus
+entrenos por semanas consecutivas desde una fecha cualquiera: piensa en "esta semana",
+"este mes" y "este año", y quiere tocar un día concreto para ver qué hizo.
+
+La intensidad de cada día es el **número de series**, no la asistencia binaria ni el
+volumen en kilos. La asistencia solo daría dos tonos; el volumen castigaría a quien
+entrena tirones frente a quien hace sentadilla.
+
+La `View` no sabe de dónde salen los datos: recibe el modo, la fecha ancla y los días con
+sus series, y avisa de qué día se ha tocado. Quién consulta la base de datos es cosa del
+ViewModel.
 
 ## 4. Sincronización
 

@@ -29,3 +29,5 @@ rootProject.name = 'FitCheck'
 //   · :core:model no depende de nada.
 
 include ':core:model'          // java-library
+include ':core:common'         // java-library
+include ':core:designsystem'
